@@ -6,7 +6,7 @@
     <li class="nav-list__item">
       <span class="nav-list__link nav-list__link--toggle" role="button" aria-expanded="false" tabindex="0">
         ${e.label}
-        <svg class="nav-list__icon" width="24" height="24"><use href="./icons.svg#arrow-down"></use></svg>
+        <svg class="nav-list__icon" width="24" height="24"><use href="/icons.svg#arrow-down"></use></svg>
       </span>
       ${t(e.subItems)}
     </li>
@@ -23,8 +23,8 @@
 
         <div class="nav">
           <div class="nav__button icon-button">
-            <svg class="nav__icon-menu" width="24" height="24"><use href="./icons.svg#menu"></use></svg>
-            <svg class="nav__icon-close" width="24" height="24"><use href="./icons.svg#close"></use></svg>
+            <svg class="nav__icon-menu" width="24" height="24"><use href="/icons.svg#menu"></use></svg>
+            <svg class="nav__icon-close" width="24" height="24"><use href="/icons.svg#close"></use></svg>
           </div>
           <div class="nav__content">
             <ul class="nav-list">
@@ -38,16 +38,16 @@
     <div class="navbar">
       <div class="navbar__wrapper">
         <a href="#" class="navbar__link icon-button">
-          <svg width="24" height="24"><use href="./icons.svg#home"></use></svg>
+          <svg width="24" height="24"><use href="/icons.svg#home"></use></svg>
         </a>
         <a href="#" class="navbar__link icon-button">
-          <svg width="24" height="24"><use href="./icons.svg#catalog"></use></svg>
+          <svg width="24" height="24"><use href="/icons.svg#catalog"></use></svg>
         </a>
         <a href="#" class="navbar__link icon-button">
-          <svg width="24" height="24"><use href="./icons.svg#favorite"></use></svg>
+          <svg width="24" height="24"><use href="/icons.svg#favorite"></use></svg>
         </a>
         <a href="#" class="navbar__link icon-button">
-          <svg width="24" height="24"><use href="./icons.svg#shopping-basket"></use></svg>
+          <svg width="24" height="24"><use href="/icons.svg#shopping-basket"></use></svg>
         </a>
       </div>
     </div>
@@ -61,7 +61,7 @@
         <a href="#" class="button article-item__button">View Product</a>
       </div>
     </article>
-  `}var s=[{image:`./assets/images/articles/article_1.jpg`,alt:`Article 1`,title:`New Arrivals`},{image:`./assets/images/articles/article_2.jpg`,alt:`Article 2`,title:`New Arrivals`},{image:`./assets/images/articles/article_3.jpg`,alt:`Article 3`,title:`New Arrivals`}];function c(){return`
+  `}var s=[{image:`https://4ykis.github.io/dartc-test/assets/article_1-BUKtzv6C.jpg`,alt:`Article 1`,title:`New Arrivals`},{image:`https://4ykis.github.io/dartc-test/assets/article_2-BiENNS4z.jpg`,alt:`Article 2`,title:`New Arrivals`},{image:`https://4ykis.github.io/dartc-test/assets/article_3-DFAC1OTC.jpg`,alt:`Article 3`,title:`New Arrivals`}];function c(){return`
     <section class="article-list">
       <div class="article-list__wrapper">
         ${s.map(o).join(``)}
@@ -82,11 +82,11 @@
     <section class="review">
       <div class="review__wrapper">
         <div class="review__rate">
-          <svg width="25" height="24"><use href="./icons.svg#star"></use></svg>
-          <svg width="25" height="24"><use href="./icons.svg#star"></use></svg>
-          <svg width="25" height="24"><use href="./icons.svg#star"></use></svg>
-          <svg width="25" height="24"><use href="./icons.svg#star"></use></svg>
-          <svg width="25" height="24"><use href="./icons.svg#star"></use></svg>
+          <svg width="25" height="24"><use href="/icons.svg#star"></use></svg>
+          <svg width="25" height="24"><use href="/icons.svg#star"></use></svg>
+          <svg width="25" height="24"><use href="/icons.svg#star"></use></svg>
+          <svg width="25" height="24"><use href="/icons.svg#star"></use></svg>
+          <svg width="25" height="24"><use href="/icons.svg#star"></use></svg>
         </div>
         <h1 class="review__title">Loved by tons of people! Real users, real results.</h1>
         <p class="review__text">
@@ -98,10 +98,10 @@
   `}function d({isFavorited:e=!1,className:t=``}={}){return`
     <button class="icon-button ${[`favorite-button`,t,e?`favorite-button--favorited`:``].filter(Boolean).join(` `)}" aria-label="${e?`Remove from favorites`:`Add to favorites`}" data-favorited="${e}">
       <svg width="24" height="24">
-        <use class="favorite-button__icon" href="${e?`./icons.svg#favorite-check`:`./icons.svg#favorite`}"></use>
+        <use class="favorite-button__icon" href="${e?`/icons.svg#favorite-check`:`/icons.svg#favorite`}"></use>
       </svg>
     </button>
-  `}function f(){document.addEventListener(`click`,e=>{let t=e.target.closest(`.favorite-button`);if(!t)return;let n=t.dataset.favorited!==`true`,r=t.querySelector(`use`);t.dataset.favorited=n.toString(),t.setAttribute(`aria-label`,n?`Remove from favorites`:`Add to favorites`),r&&(r.href.baseVal=n?`./icons.svg#favorite-check`:`./icons.svg#favorite`),t.classList.toggle(`favorite-button--favorited`,n)})}function p({image:e,alt:t,name:n,settings:r,price:i,oldPrice:a}){return`
+  `}function f(){document.addEventListener(`click`,e=>{let t=e.target.closest(`.favorite-button`);if(!t)return;let n=t.dataset.favorited!==`true`,r=t.querySelector(`use`);t.dataset.favorited=n.toString(),t.setAttribute(`aria-label`,n?`Remove from favorites`:`Add to favorites`),r&&(r.href.baseVal=n?`/icons.svg#favorite-check`:`/icons.svg#favorite`),t.classList.toggle(`favorite-button--favorited`,n)})}function p({image:e,alt:t,name:n,settings:r,price:i,oldPrice:a}){return`
     <div class="product">
       <div class="product__image-wrapper">
         <img class="product__image" width="155" height="155" src="${e}" alt="${t}">
@@ -117,18 +117,18 @@
       </div>
       <a href="#" class="button button--full product__button">Add to Cart</a>
     </div>
-  `}var m=[{image:`./assets/images/products/product_1.jpg`,alt:`Apple iPhone 15 Pro`,name:`Apple iPhone 15 Pro`,settings:`256GB · 8GB RAM · Black`,price:`$999`,oldPrice:`$1,199.00`},{image:`./assets/images/products/product_2.jpg`,alt:`Google Pixel 8 Pro`,name:`Google Pixel 8 Pro`,settings:`128GB · 8GB RAM · Hazel`,price:`$999`,oldPrice:`$1,199`}];function h(){return`
+  `}var m=`https://4ykis.github.io/dartc-test/assets/product_1-BL22EEat.jpg`,h=[{image:m,alt:`Apple iPhone 15 Pro`,name:`Apple iPhone 15 Pro`,settings:`256GB · 8GB RAM · Black`,price:`$999`,oldPrice:`$1,199.00`},{image:`https://4ykis.github.io/dartc-test/assets/product_2-BUWLSNfO.jpg`,alt:`Google Pixel 8 Pro`,name:`Google Pixel 8 Pro`,settings:`128GB · 8GB RAM · Hazel`,price:`$999`,oldPrice:`$1,199`}];function g(){return`
     <section class="recommendations">
       <h2 class="recommendations__title">You May Also Like</h2>
       <div class="recommendations__list">
-        ${m.map(p).join(``)}
+        ${h.map(p).join(``)}
       </div>
     </section>
-  `}function g(){return`
+  `}function _(){return`
     <section class="main-product-wrapper">
       <div class="main-product">
         <div class="main-product__image-wrapper">
-          <img class="main-product__image" width="326" height="326" src="./assets/images/products/product_1.jpg" alt="Samsung Galaxy S24 Ultra">
+          <img class="main-product__image" width="326" height="326" src="${m}" alt="Samsung Galaxy S24 Ultra">
           ${d({className:`product__favorite`})}
         </div>
         <div class="main-product__content">
@@ -143,26 +143,26 @@
         <a href="#" class="button main-product__button">View Product</a>
       </div>
     </section>
-  `}function _(e){let{id:t,label:n,type:r=`text`,placeholder:i=``,required:a=!1}=e,o=r,s=a?`<span class="form-field__star">*</span>`:``,c=a?`required`:``,l=`<input class="form-field__input" id="${t}" name="${t}" type="${r}" placeholder="${i}" ${c}>`;return o===`textarea`&&(l=`<textarea class="form-field__textarea" id="${t}" name="${t}" placeholder="${i}" ${c}></textarea>`),`
+  `}function v(e){let{id:t,label:n,type:r=`text`,placeholder:i=``,required:a=!1}=e,o=r,s=a?`<span class="form-field__star">*</span>`:``,c=a?`required`:``,l=`<input class="form-field__input" id="${t}" name="${t}" type="${r}" placeholder="${i}" ${c}>`;return o===`textarea`&&(l=`<textarea class="form-field__textarea" id="${t}" name="${t}" placeholder="${i}" ${c}></textarea>`),`
     <div class="form-field">
       <label class="form-field__label" for="${t}">${n} ${s}</label>
       ${l}
       <span class="form-field__notify"></span>
     </div>
-  `}function v(e,t){let n=t.trim();if(e===`userName`&&(!n||n.length<2))return`Name must be at least 2 characters`;if(e===`userEmail`&&(!n||!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(n)))return`Please enter a valid email`;if(e===`userMessage`&&(!n||n.length<5))return`Message must be at least 5 characters`}function y(e){let t={},n=e.get(`userName`),r=e.get(`userEmail`),i=e.get(`userMessage`),a=v(`userName`,n);a&&(t.userName=a);let o=v(`userEmail`,r);o&&(t.userEmail=o);let s=v(`userMessage`,i);return s&&(t.userMessage=s),{valid:Object.keys(t).length===0,errors:t}}function b(e,t){return v(e,t)}function x(e,t){let n=document.getElementById(e)?.closest(`.form-field`),r=n?.querySelector(`.form-field__notify`);n&&r&&(n.classList.add(`form-field--error`),r.textContent=t)}function S(){document.querySelectorAll(`.form-field`).forEach(e=>{e.classList.remove(`form-field--error`,`form-field--success`);let t=e.querySelector(`.form-field__notify`);t&&(t.textContent=``)})}function C(e){let t=document.getElementById(e)?.closest(`.form-field`),n=t?.querySelector(`.form-field__notify`);t&&n&&(t.classList.remove(`form-field--error`),n.textContent=``)}function w(){let e=document.querySelector(`.feedback__form`);e&&(e.querySelectorAll(`input, textarea`).forEach(e=>{e.addEventListener(`blur`,()=>{let t=b(e.id,e.value);t?x(e.id,t):C(e.id)})}),e.addEventListener(`submit`,t=>{t.preventDefault(),S();let n=new FormData(e),{valid:r,errors:i}=y(n);if(!r){Object.entries(i).forEach(([e,t])=>{x(e,t)});return}console.log(`Form submitted:`,Object.fromEntries(n));let a=e.closest(`.feedback`)?.querySelector(`.feedback__notification--success`);a?(a.style.display=`block`,e.style.display=`none`,setTimeout(()=>{a.style.display=`none`,e.style.display=`block`,e.reset()},5e3)):e.reset()}))}function T(){return`
+  `}function y(e,t){let n=t.trim();if(e===`userName`&&(!n||n.length<2))return`Name must be at least 2 characters`;if(e===`userEmail`&&(!n||!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(n)))return`Please enter a valid email`;if(e===`userMessage`&&(!n||n.length<5))return`Message must be at least 5 characters`}function b(e){let t={},n=e.get(`userName`),r=e.get(`userEmail`),i=e.get(`userMessage`),a=y(`userName`,n);a&&(t.userName=a);let o=y(`userEmail`,r);o&&(t.userEmail=o);let s=y(`userMessage`,i);return s&&(t.userMessage=s),{valid:Object.keys(t).length===0,errors:t}}function x(e,t){return y(e,t)}function S(e,t){let n=document.getElementById(e)?.closest(`.form-field`),r=n?.querySelector(`.form-field__notify`);n&&r&&(n.classList.add(`form-field--error`),r.textContent=t)}function C(){document.querySelectorAll(`.form-field`).forEach(e=>{e.classList.remove(`form-field--error`,`form-field--success`);let t=e.querySelector(`.form-field__notify`);t&&(t.textContent=``)})}function w(e){let t=document.getElementById(e)?.closest(`.form-field`),n=t?.querySelector(`.form-field__notify`);t&&n&&(t.classList.remove(`form-field--error`),n.textContent=``)}function T(){let e=document.querySelector(`.feedback__form`);e&&(e.querySelectorAll(`input, textarea`).forEach(e=>{e.addEventListener(`blur`,()=>{let t=x(e.id,e.value);t?S(e.id,t):w(e.id)})}),e.addEventListener(`submit`,t=>{t.preventDefault(),C();let n=new FormData(e),{valid:r,errors:i}=b(n);if(!r){Object.entries(i).forEach(([e,t])=>{S(e,t)});return}console.log(`Form submitted:`,Object.fromEntries(n));let a=e.closest(`.feedback`)?.querySelector(`.feedback__notification--success`);a?(a.style.display=`block`,e.style.display=`none`,setTimeout(()=>{a.style.display=`none`,e.style.display=`block`,e.reset()},5e3)):e.reset()}))}function E(){return`
     <section class="feedback">
       <h3 class="feedback__title">Get in Touch</h3>
       <div class="feedback__notification feedback__notification--success" style="display: none;">
         Thank you! Your message has been sent successfully.
       </div>
       <form action="" class="feedback__form">
-        ${_({id:`userName`,label:`Name`,type:`text`,placeholder:`Name`,required:!0})}
-        ${_({id:`userEmail`,label:`Email`,type:`email`,placeholder:`Email`,required:!0})}
-        ${_({id:`userMessage`,label:`Message`,type:`textarea`,placeholder:`Your message`,required:!0})}
+        ${v({id:`userName`,label:`Name`,type:`text`,placeholder:`Name`,required:!0})}
+        ${v({id:`userEmail`,label:`Email`,type:`email`,placeholder:`Email`,required:!0})}
+        ${v({id:`userMessage`,label:`Message`,type:`textarea`,placeholder:`Your message`,required:!0})}
         <button type="submit" class="button button--full">Send Message</button>
       </form>
     </section>
-  `}function E(){return`
+  `}function D(){return`
     ${i()}
 
     <main class="page">
@@ -170,11 +170,11 @@
         ${c()}
         ${l()}
         ${u()}
-        ${h()}
         ${g()}
-        ${T()}
+        ${_()}
+        ${E()}
       </div>
 
       ${a()}
     </main>
-  `}var D=document.getElementById(`app`);D&&(D.innerHTML=E(),r(),w(),f());
+  `}var O=document.getElementById(`app`);O&&(O.innerHTML=D(),r(),T(),f());
