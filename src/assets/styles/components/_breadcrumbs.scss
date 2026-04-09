@@ -1,0 +1,40 @@
+@use '../base/mixins.scss' as mixins;
+@use '../base/breakpoints.scss' as breakpoints;
+
+.breadcrumbs {
+    @include mixins.scroller;
+
+    color: rgb(var(--clr-gray-400));
+    font-size: 14px;
+    line-height: 21px;
+    font-weight: 400;
+
+    @include breakpoints.min-width('md') {
+        font-size: 16px;
+        line-height: 24px;
+    }
+
+    @include breakpoints.min-width('lg') {
+        font-size: 18px;
+        line-height: 28px;
+    }
+
+    &__wrapper {
+        gap: 8px;
+    }
+
+    &__link {
+        color: var(--breadcrumbs-link-color, inherit);
+        cursor: pointer;
+        transition: color 0.3s;
+
+        &:hover {
+            --breadcrumbs-link-color: rgb(var(--clr-black-200));
+        }        
+    }
+
+    &__current {
+        color: rgb(var(--clr-black-200));
+        font-weight: 600;
+    }
+}

@@ -1,0 +1,41 @@
+@use '../base/breakpoints.scss' as breakpoints;
+
+@mixin scroller {
+    margin-inline: calc(-1 * var(--spacing-block-md));
+    padding-block: var(--spacing-block-sm);
+    padding-inline: var(--spacing-block-md);
+    overflow-y: auto;
+    scrollbar-width: none;
+
+    &__wrapper {
+        display: flex;
+        flex-wrap: nowrap;
+        min-width: max-content;
+    }
+
+    &:active, &:hover {
+        scrollbar-width: thin;
+        scrollbar-color: rgb(var(--clr-black) / 0.4) transparent;
+    }
+}
+
+@mixin price() {
+    display: flex;
+    align-items: flex-end;
+    justify-content: var(--price-place, center);
+    gap: 8px;
+
+    &__current {
+        font-size: var(--price-current-fs, 16px);
+        line-height: var(--price-current-lh, 16px);
+        font-weight: 700;
+        color: rgb(var(--clr-black));
+    }
+
+    &__old {
+        font-size: var(--price-old-fs, 12px);
+        line-height: var(--price-old-lh, 16px);
+        color: rgb(var(--clr-gray-500));
+        text-decoration: line-through;
+    }
+}

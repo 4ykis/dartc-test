@@ -1,0 +1,32 @@
+.review {
+    padding-block: var(--spacing-block-lg);
+
+    &__wrapper {
+        padding: var(--spacing-block-lg);
+        border-radius: var(--border-radius-md);
+        background-color: rgb(var(--clr-brand-200));
+    }
+
+    &__rate {
+        display: flex;
+        align-items: center;
+        gap: 8px;
+        margin-bottom: 12px;
+        color: rgb(var(--clr-brand-700) / 0.8);
+    }
+
+    &__title {
+        font-size: 24px;
+        line-height: 1.5;
+        font-weight: 700;
+        margin-bottom: 16px;
+        color: rgb(var(--clr-brand-700))
+    }
+
+    &__text {
+        font-size: 16px;
+        line-height: 1.5;
+        color: rgb(var(--clr-brand-700) / 0.6);
+        margin-bottom: 20px;
+    }
+}

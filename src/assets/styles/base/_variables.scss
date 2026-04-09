@@ -1,0 +1,44 @@
+:root {
+    --font-primary: 'Figtree', sans-serif;
+    --font-secondary: 'Inter', sans-serif;
+
+    // colors
+    --clr-black: 0 0 0;
+    --clr-white: 255 255 255;
+
+    --clr-black-100: 10 13 18;
+    --clr-black-200: 26 26 26;
+
+    --clr-gray-100: 245 245 245;
+    --clr-gray-200: 243 244 246;
+    --clr-gray-300: 213 215 218;
+    --clr-gray-400: 107 114 128;
+    --clr-gray-500: 113 118 128;
+    --clr-gray-900: 149 157 165;
+
+    --clr-brand-100: 244 235 255;
+    --clr-brand-200: 233 215 254;
+    --clr-brand-300: 214 187 251;
+    --clr-brand-400: 164 167 174;
+    --clr-brand-600: 129 92 221;
+    --clr-brand-700: 66 48 125;
+
+    --clr-error: 249 112 102;
+    --clr-success: 50 213 131;
+
+    // borders
+    --border-radius-xs: 8px;
+    --border-radius-sm: 12px;
+    --border-radius-md: 16px;
+    --border-radius-lg: 24px;
+    --border-radius-50: 50%;
+    --border-radius-rounded: 9999px;
+
+    // global
+    --spacing-block-sm: 12px;
+    --spacing-block-md: 16px;
+    --spacing-block-lg: 24px;
+
+    //shadows
+    --shadow-card: 0px 4px 8px 24px rgba(var(--clr-gray-900) / 0.2);
+}

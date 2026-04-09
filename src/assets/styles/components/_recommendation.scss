@@ -1,0 +1,108 @@
+@use '../base/mixins.scss' as mixins;
+@use '../base/breakpoints.scss' as breakpoints;
+
+.recommendations {
+    display: grid;
+    gap: var(--spacing-block-md);
+    padding-block: var(--spacing-block-lg);
+
+    &__title {
+        font-size: 24px;
+        font-weight: 700;
+        line-height: 1.5;
+        color: rgb(var(--clr-black));
+    }
+
+    &__list {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: var(--spacing-block-md);
+
+        @include breakpoints.min-width('md') {
+            grid-template-columns: repeat(3, 1fr);
+        }
+
+        @include breakpoints.min-width('lg') {
+            grid-template-columns: repeat(4, 1fr);
+        }
+
+        @include breakpoints.min-width('xl') {
+            grid-template-columns: repeat(5, 1fr);
+        }
+    }
+}
+
+.product {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    border-radius: var(--border-radius-sm);
+    background-color: rgb(var(--clr-white));
+    box-shadow: 0 8px 24px rgb(var(--clr-gray-900) / 0.2);
+    padding: 8px;
+
+    @include breakpoints.min-width('md') {
+        padding: 12px;
+    }
+
+    &__image-wrapper {
+        position: relative;
+    }
+
+    &__image {
+        width: 100%;
+        aspect-ratio: 1;
+        border-radius: var(--border-radius-xs);
+        object-fit: cover;
+        object-position: center;
+    }
+
+    &__favorite {
+        position: absolute;
+        inset-inline-end: 4px;
+        inset-block-start: 4px;
+    }
+
+    &__description {
+        display: flex;
+        flex-direction: column;
+        padding-inline: 4px;
+        padding-block: 8px;
+        text-align: center;
+    }
+
+    &__name {
+        font-size: 14px;
+        line-height: 16px;
+        font-weight: 700;
+        margin-bottom: 8px;
+
+        @include breakpoints.min-width('md') {
+            font-size: 18px;
+            line-height: 20px;
+        }
+    }
+
+    &__settings {
+        font-size: 12px;
+        line-height: 16px;
+        color: rgb(var(--clr-gray-500));
+        margin-bottom: 12px;
+
+        @include breakpoints.min-width('md') {
+            font-size: 14px;
+            line-height: 18px;
+        }
+    }
+}
+
+.product-price {
+    @include mixins.price;
+
+    @include breakpoints.min-width('md') {
+        --price-current-fs: 20px;
+        --price-current-lh: 24px;
+        --price-old-fs: 16px;
+        --price-old-lh: 24px;
+    }
+}
