@@ -143,15 +143,18 @@
         <a href="#" class="button main-product__button">View Product</a>
       </div>
     </section>
-  `}function _(e){let{id:t,label:n,type:r=`text`,placeholder:i=``,required:a=!1}=e,o=r===`textarea`?`textarea`:`input`,s=a?`<span class="form-field__star">*</span>`:``,c=a?`required`:``,l=`<input class="form-field__input" id="${t}" name="${t}" type="${r}" placeholder="${i}" ${c}>`;return o===`textarea`&&(l=`<textarea class="form-field__textarea" id="${t}" name="${t}" placeholder="${i}" ${c}></textarea>`),`
+  `}function _(e){let{id:t,label:n,type:r=`text`,placeholder:i=``,required:a=!1}=e,o=r,s=a?`<span class="form-field__star">*</span>`:``,c=a?`required`:``,l=`<input class="form-field__input" id="${t}" name="${t}" type="${r}" placeholder="${i}" ${c}>`;return o===`textarea`&&(l=`<textarea class="form-field__textarea" id="${t}" name="${t}" placeholder="${i}" ${c}></textarea>`),`
     <div class="form-field">
       <label class="form-field__label" for="${t}">${n} ${s}</label>
       ${l}
       <span class="form-field__notify"></span>
     </div>
-  `}function v(e){let t={},n=e.get(`userName`),r=e.get(`userEmail`),i=e.get(`userMessage`);return(!n||n.trim().length<2)&&(t.userName=`Name must be at least 2 characters`),(!r||!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(r))&&(t.userEmail=`Please enter a valid email`),(!i||i.trim().length<5)&&(t.userMessage=`Message must be at least 5 characters`),{valid:Object.keys(t).length===0,errors:t}}function y(e,t){let n=t.trim();if(e===`userName`&&(!n||n.length<2))return`Name must be at least 2 characters`;if(e===`userEmail`&&(!n||!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(n)))return`Please enter a valid email`;if(e===`userMessage`&&(!n||n.length<5))return`Message must be at least 5 characters`}function b(e,t){let n=document.getElementById(e)?.closest(`.form-field`),r=n?.querySelector(`.form-field__notify`);n&&r&&(n.classList.add(`form-field--error`),r.textContent=t)}function x(){document.querySelectorAll(`.form-field`).forEach(e=>{e.classList.remove(`form-field--error`,`form-field--success`);let t=e.querySelector(`.form-field__notify`);t&&(t.textContent=``)})}function S(e){let t=document.getElementById(e)?.closest(`.form-field`),n=t?.querySelector(`.form-field__notify`);t&&n&&(t.classList.remove(`form-field--error`),n.textContent=``)}function C(){let e=document.querySelector(`.feedback__form`);e&&(e.querySelectorAll(`input, textarea`).forEach(e=>{e.addEventListener(`blur`,()=>{let t=y(e.id,e.value);t?b(e.id,t):S(e.id)})}),e.addEventListener(`submit`,t=>{t.preventDefault(),x();let n=new FormData(e),{valid:r,errors:i}=v(n);if(!r){Object.entries(i).forEach(([e,t])=>{b(e,t)});return}console.log(`Form submitted:`,Object.fromEntries(n)),e.reset()}))}function w(){return`
+  `}function v(e,t){let n=t.trim();if(e===`userName`&&(!n||n.length<2))return`Name must be at least 2 characters`;if(e===`userEmail`&&(!n||!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(n)))return`Please enter a valid email`;if(e===`userMessage`&&(!n||n.length<5))return`Message must be at least 5 characters`}function y(e){let t={},n=e.get(`userName`),r=e.get(`userEmail`),i=e.get(`userMessage`),a=v(`userName`,n);a&&(t.userName=a);let o=v(`userEmail`,r);o&&(t.userEmail=o);let s=v(`userMessage`,i);return s&&(t.userMessage=s),{valid:Object.keys(t).length===0,errors:t}}function b(e,t){return v(e,t)}function x(e,t){let n=document.getElementById(e)?.closest(`.form-field`),r=n?.querySelector(`.form-field__notify`);n&&r&&(n.classList.add(`form-field--error`),r.textContent=t)}function S(){document.querySelectorAll(`.form-field`).forEach(e=>{e.classList.remove(`form-field--error`,`form-field--success`);let t=e.querySelector(`.form-field__notify`);t&&(t.textContent=``)})}function C(e){let t=document.getElementById(e)?.closest(`.form-field`),n=t?.querySelector(`.form-field__notify`);t&&n&&(t.classList.remove(`form-field--error`),n.textContent=``)}function w(){let e=document.querySelector(`.feedback__form`);e&&(e.querySelectorAll(`input, textarea`).forEach(e=>{e.addEventListener(`blur`,()=>{let t=b(e.id,e.value);t?x(e.id,t):C(e.id)})}),e.addEventListener(`submit`,t=>{t.preventDefault(),S();let n=new FormData(e),{valid:r,errors:i}=y(n);if(!r){Object.entries(i).forEach(([e,t])=>{x(e,t)});return}console.log(`Form submitted:`,Object.fromEntries(n));let a=e.closest(`.feedback`)?.querySelector(`.feedback__notification--success`);a?(a.style.display=`block`,e.style.display=`none`,setTimeout(()=>{a.style.display=`none`,e.style.display=`block`,e.reset()},5e3)):e.reset()}))}function T(){return`
     <section class="feedback">
       <h3 class="feedback__title">Get in Touch</h3>
+      <div class="feedback__notification feedback__notification--success" style="display: none;">
+        Thank you! Your message has been sent successfully.
+      </div>
       <form action="" class="feedback__form">
         ${_({id:`userName`,label:`Name`,type:`text`,placeholder:`Name`,required:!0})}
         ${_({id:`userEmail`,label:`Email`,type:`email`,placeholder:`Email`,required:!0})}
@@ -159,7 +162,7 @@
         <button type="submit" class="button button--full">Send Message</button>
       </form>
     </section>
-  `}function T(){return`
+  `}function E(){return`
     ${i()}
 
     <main class="page">
@@ -169,9 +172,9 @@
         ${u()}
         ${h()}
         ${g()}
-        ${w()}
+        ${T()}
       </div>
 
       ${a()}
     </main>
-  `}var E=document.getElementById(`app`);E&&(E.innerHTML=T(),r(),C(),f());
+  `}var D=document.getElementById(`app`);D&&(D.innerHTML=E(),r(),w(),f());
