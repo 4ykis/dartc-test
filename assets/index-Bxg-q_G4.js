@@ -6,7 +6,7 @@
     <li class="nav-list__item">
       <span class="nav-list__link nav-list__link--toggle" role="button" aria-expanded="false" tabindex="0">
         ${e.label}
-        <svg class="nav-list__icon" width="24" height="24"><use href="/icons.svg#arrow-down"></use></svg>
+        <svg class="nav-list__icon" width="24" height="24"><use href="./icons.svg#arrow-down"></use></svg>
       </span>
       ${t(e.subItems)}
     </li>
@@ -82,11 +82,11 @@
     <section class="review">
       <div class="review__wrapper">
         <div class="review__rate">
-          <svg width="25" height="24"><use href="/icons.svg#star"></use></svg>
-          <svg width="25" height="24"><use href="/icons.svg#star"></use></svg>
-          <svg width="25" height="24"><use href="/icons.svg#star"></use></svg>
-          <svg width="25" height="24"><use href="/icons.svg#star"></use></svg>
-          <svg width="25" height="24"><use href="/icons.svg#star"></use></svg>
+          <svg width="25" height="24"><use href="./icons.svg#star"></use></svg>
+          <svg width="25" height="24"><use href="./icons.svg#star"></use></svg>
+          <svg width="25" height="24"><use href="./icons.svg#star"></use></svg>
+          <svg width="25" height="24"><use href="./icons.svg#star"></use></svg>
+          <svg width="25" height="24"><use href="./icons.svg#star"></use></svg>
         </div>
         <h1 class="review__title">Loved by tons of people! Real users, real results.</h1>
         <p class="review__text">
@@ -98,10 +98,10 @@
   `}function d({isFavorited:e=!1,className:t=``}={}){return`
     <button class="icon-button ${[`favorite-button`,t,e?`favorite-button--favorited`:``].filter(Boolean).join(` `)}" aria-label="${e?`Remove from favorites`:`Add to favorites`}" data-favorited="${e}">
       <svg width="24" height="24">
-        <use class="favorite-button__icon" href="${e?`/icons.svg#favorite-check`:`/icons.svg#favorite`}"></use>
+        <use class="favorite-button__icon" href="${e?`./icons.svg#favorite-check`:`./icons.svg#favorite`}"></use>
       </svg>
     </button>
-  `}function f(){document.addEventListener(`click`,e=>{let t=e.target.closest(`.favorite-button`);if(!t)return;let n=t.dataset.favorited!==`true`,r=t.querySelector(`use`);t.dataset.favorited=n.toString(),t.setAttribute(`aria-label`,n?`Remove from favorites`:`Add to favorites`),r&&(r.href.baseVal=n?`/icons.svg#favorite-check`:`/icons.svg#favorite`),t.classList.toggle(`favorite-button--favorited`,n)})}function p({image:e,alt:t,name:n,settings:r,price:i,oldPrice:a}){return`
+  `}function f(){document.addEventListener(`click`,e=>{let t=e.target.closest(`.favorite-button`);if(!t)return;let n=t.dataset.favorited!==`true`,r=t.querySelector(`use`);t.dataset.favorited=n.toString(),t.setAttribute(`aria-label`,n?`Remove from favorites`:`Add to favorites`),r&&(r.href.baseVal=n?`./icons.svg#favorite-check`:`./icons.svg#favorite`),t.classList.toggle(`favorite-button--favorited`,n)})}function p({image:e,alt:t,name:n,settings:r,price:i,oldPrice:a}){return`
     <div class="product">
       <div class="product__image-wrapper">
         <img class="product__image" width="155" height="155" src="${e}" alt="${t}">
