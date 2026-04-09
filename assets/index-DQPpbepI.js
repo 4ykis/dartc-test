@@ -23,8 +23,8 @@
 
         <div class="nav">
           <div class="nav__button icon-button">
-            <svg class="nav__icon-menu" width="24" height="24"><use href="/icons.svg#menu"></use></svg>
-            <svg class="nav__icon-close" width="24" height="24"><use href="/icons.svg#close"></use></svg>
+            <svg class="nav__icon-menu" width="24" height="24"><use href="./icons.svg#menu"></use></svg>
+            <svg class="nav__icon-close" width="24" height="24"><use href="./icons.svg#close"></use></svg>
           </div>
           <div class="nav__content">
             <ul class="nav-list">
@@ -38,16 +38,16 @@
     <div class="navbar">
       <div class="navbar__wrapper">
         <a href="#" class="navbar__link icon-button">
-          <svg width="24" height="24"><use href="/icons.svg#home"></use></svg>
+          <svg width="24" height="24"><use href="./icons.svg#home"></use></svg>
         </a>
         <a href="#" class="navbar__link icon-button">
-          <svg width="24" height="24"><use href="/icons.svg#catalog"></use></svg>
+          <svg width="24" height="24"><use href="./icons.svg#catalog"></use></svg>
         </a>
         <a href="#" class="navbar__link icon-button">
-          <svg width="24" height="24"><use href="/icons.svg#favorite"></use></svg>
+          <svg width="24" height="24"><use href="./icons.svg#favorite"></use></svg>
         </a>
         <a href="#" class="navbar__link icon-button">
-          <svg width="24" height="24"><use href="/icons.svg#shopping-basket"></use></svg>
+          <svg width="24" height="24"><use href="./icons.svg#shopping-basket"></use></svg>
         </a>
       </div>
     </div>
@@ -61,7 +61,7 @@
         <a href="#" class="button article-item__button">View Product</a>
       </div>
     </article>
-  `}var s=[{image:`/assets/images/articles/article_1.jpg`,alt:`Article 1`,title:`New Arrivals`},{image:`/assets/images/articles/article_2.jpg`,alt:`Article 2`,title:`New Arrivals`},{image:`/assets/images/articles/article_3.jpg`,alt:`Article 3`,title:`New Arrivals`}];function c(){return`
+  `}var s=[{image:`./assets/images/articles/article_1.jpg`,alt:`Article 1`,title:`New Arrivals`},{image:`./assets/images/articles/article_2.jpg`,alt:`Article 2`,title:`New Arrivals`},{image:`./assets/images/articles/article_3.jpg`,alt:`Article 3`,title:`New Arrivals`}];function c(){return`
     <section class="article-list">
       <div class="article-list__wrapper">
         ${s.map(o).join(``)}
@@ -82,11 +82,11 @@
     <section class="review">
       <div class="review__wrapper">
         <div class="review__rate">
-          <svg width="25" height="24"><use href="/icons.svg#star"></use></svg>
-          <svg width="25" height="24"><use href="/icons.svg#star"></use></svg>
-          <svg width="25" height="24"><use href="/icons.svg#star"></use></svg>
-          <svg width="25" height="24"><use href="/icons.svg#star"></use></svg>
-          <svg width="25" height="24"><use href="/icons.svg#star"></use></svg>
+          <svg width="25" height="24"><use href="./icons.svg#star"></use></svg>
+          <svg width="25" height="24"><use href="./icons.svg#star"></use></svg>
+          <svg width="25" height="24"><use href="./icons.svg#star"></use></svg>
+          <svg width="25" height="24"><use href="./icons.svg#star"></use></svg>
+          <svg width="25" height="24"><use href="./icons.svg#star"></use></svg>
         </div>
         <h1 class="review__title">Loved by tons of people! Real users, real results.</h1>
         <p class="review__text">
@@ -96,15 +96,12 @@
       </div>
     </section>
   `}function d({isFavorited:e=!1,className:t=``}={}){return`
-    <button class="icon-button ${[`favorite-button`,t,e?`favorite-button--favorited`:``].filter(Boolean).join(` `)}" aria-label="${e?`Remove from favorites`:`Add to favorites`}">
+    <button class="icon-button ${[`favorite-button`,t,e?`favorite-button--favorited`:``].filter(Boolean).join(` `)}" aria-label="${e?`Remove from favorites`:`Add to favorites`}" data-favorited="${e}">
       <svg width="24" height="24">
-        <use class="favorite-button__icon favorite-button__icon--default" href="/icons.svg#favorite"></use>
-        <use class="favorite-button__icon favorite-button__icon--add" href="/icons.svg#favorite-add"></use>
-        <use class="favorite-button__icon favorite-button__icon--check" href="/icons.svg#favorite-check"></use>
-        <use class="favorite-button__icon favorite-button__icon--remove" href="/icons.svg#favorite-remove"></use>
+        <use class="favorite-button__icon" href="${e?`./icons.svg#favorite-check`:`./icons.svg#favorite`}"></use>
       </svg>
     </button>
-  `}function f(){document.addEventListener(`click`,e=>{let t=e.target.closest(`.favorite-button`);if(!t)return;let n=t.dataset.favorited!==`true`;t.dataset.favorited=n.toString(),t.setAttribute(`aria-label`,n?`Remove from favorites`:`Add to favorites`),t.classList.toggle(`favorite-button--favorited`,n)})}function p({image:e,alt:t,name:n,settings:r,price:i,oldPrice:a}){return`
+  `}function f(){document.addEventListener(`click`,e=>{let t=e.target.closest(`.favorite-button`);if(!t)return;let n=t.dataset.favorited!==`true`,r=t.querySelector(`use`);t.dataset.favorited=n.toString(),t.setAttribute(`aria-label`,n?`Remove from favorites`:`Add to favorites`),r&&(r.href.baseVal=n?`./icons.svg#favorite-check`:`./icons.svg#favorite`),t.classList.toggle(`favorite-button--favorited`,n)})}function p({image:e,alt:t,name:n,settings:r,price:i,oldPrice:a}){return`
     <div class="product">
       <div class="product__image-wrapper">
         <img class="product__image" width="155" height="155" src="${e}" alt="${t}">
@@ -120,7 +117,7 @@
       </div>
       <a href="#" class="button button--full product__button">Add to Cart</a>
     </div>
-  `}var m=[{image:`/assets/images/products/product_1.jpg`,alt:`Apple iPhone 15 Pro`,name:`Apple iPhone 15 Pro`,settings:`256GB · 8GB RAM · Black`,price:`$999`,oldPrice:`$1,199.00`},{image:`/assets/images/products/product_2.jpg`,alt:`Google Pixel 8 Pro`,name:`Google Pixel 8 Pro`,settings:`128GB · 8GB RAM · Hazel`,price:`$999`,oldPrice:`$1,199`}];function h(){return`
+  `}var m=[{image:`./assets/images/products/product_1.jpg`,alt:`Apple iPhone 15 Pro`,name:`Apple iPhone 15 Pro`,settings:`256GB · 8GB RAM · Black`,price:`$999`,oldPrice:`$1,199.00`},{image:`./assets/images/products/product_2.jpg`,alt:`Google Pixel 8 Pro`,name:`Google Pixel 8 Pro`,settings:`128GB · 8GB RAM · Hazel`,price:`$999`,oldPrice:`$1,199`}];function h(){return`
     <section class="recommendations">
       <h2 class="recommendations__title">You May Also Like</h2>
       <div class="recommendations__list">
@@ -131,7 +128,7 @@
     <section class="main-product-wrapper">
       <div class="main-product">
         <div class="main-product__image-wrapper">
-          <img class="main-product__image" width="326" height="326" src="/assets/images/products/product_1.jpg" alt="Samsung Galaxy S24 Ultra">
+          <img class="main-product__image" width="326" height="326" src="./assets/images/products/product_1.jpg" alt="Samsung Galaxy S24 Ultra">
           ${d({className:`product__favorite`})}
         </div>
         <div class="main-product__content">
