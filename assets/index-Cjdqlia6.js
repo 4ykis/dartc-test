@@ -23,8 +23,8 @@
 
         <div class="nav">
           <div class="nav__button icon-button">
-            <svg class="nav__icon-menu" width="24" height="24"><use href="/icons.svg#menu"></use></svg>
-            <svg class="nav__icon-close" width="24" height="24"><use href="/icons.svg#close"></use></svg>
+            <svg class="nav__icon-menu" width="24" height="24"><use href="./icons.svg#menu"></use></svg>
+            <svg class="nav__icon-close" width="24" height="24"><use href="./icons.svg#close"></use></svg>
           </div>
           <div class="nav__content">
             <ul class="nav-list">
