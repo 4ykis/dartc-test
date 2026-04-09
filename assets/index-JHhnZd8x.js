@@ -96,7 +96,7 @@
       </div>
     </section>
   `}function d({isFavorited:e=!1,className:t=``}={}){return`
-    <button class="icon-button ${[`favorite-button`,t,e?`favorite-button--favorited`:``].filter(Boolean).join(` `)}" aria-label="${e?`Remove from favorites`:`Add to favorites`}" data-favorited="${e}">
+    <button class="icon-button ${[`favorite-button`,t,e?`favorite-button--favorited`:``].filter(Boolean).join(` `)}" aria-label="${e?`Remove from favorites`:`Add to favorites`}">
       <svg width="24" height="24">
         <use class="favorite-button__icon favorite-button__icon--default" href="/icons.svg#favorite"></use>
         <use class="favorite-button__icon favorite-button__icon--add" href="/icons.svg#favorite-add"></use>
