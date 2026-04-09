@@ -6,7 +6,7 @@
     <li class="nav-list__item">
       <span class="nav-list__link nav-list__link--toggle" role="button" aria-expanded="false" tabindex="0">
         ${e.label}
-        <svg class="nav-list__icon" width="24" height="24"><use href="/icons.svg#arrow-down"></use></svg>
+        <svg class="nav-list__icon" width="24" height="24"><use href="./icons.svg#arrow-down"></use></svg>
       </span>
       ${t(e.subItems)}
     </li>
