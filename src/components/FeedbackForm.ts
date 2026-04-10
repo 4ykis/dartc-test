@@ -11,7 +11,7 @@ type FormFieldProps = {
 
 function FormField(props: FormFieldProps): string {
   const { id, label, type = 'text', placeholder = '', required = false } = props;
-  const fieldType = type === 'textarea' ? 'textarea' : 'input';
+  const fieldType = type;
   const requiredMark = required ? '<span class="form-field__star">*</span>' : '';
   const requiredAttr = required ? 'required' : '';
   let field  =`<input class="form-field__input" id="${id}" name="${id}" type="${type}" placeholder="${placeholder}" ${requiredAttr}>`;
@@ -29,31 +29,7 @@ function FormField(props: FormFieldProps): string {
   `;
 }
 
-function validateForm(formData: FormData): { valid: boolean; errors: Record<string, string> } {
-  const errors: Record<string, string> = {};
-  const name = formData.get('userName') as string;
-  const email = formData.get('userEmail') as string;
-  const message = formData.get('userMessage') as string;
-
-  if (!name || name.trim().length < 2) {
-    errors.userName = 'Name must be at least 2 characters';
-  }
-
-  if (!email || !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
-    errors.userEmail = 'Please enter a valid email';
-  }
-
-  if (!message || message.trim().length < 5) {
-    errors.userMessage = 'Message must be at least 5 characters';
-  }
-
-  return {
-    valid: Object.keys(errors).length === 0,
-    errors,
-  };
-}
-
-function validateField(fieldId: string, value: string): string | undefined {
+function validateFieldValue(fieldId: string, value: string): string | undefined {
   const trimmed = value.trim();
 
   if (fieldId === 'userName' && (!trimmed || trimmed.length < 2)) {
@@ -69,6 +45,31 @@ function validateField(fieldId: string, value: string): string | undefined {
   }
 
   return undefined;
+}
+
+function validateForm(formData: FormData): { valid: boolean; errors: Record<string, string> } {
+  const errors: Record<string, string> = {};
+  const name = formData.get('userName') as string;
+  const email = formData.get('userEmail') as string;
+  const message = formData.get('userMessage') as string;
+
+  const nameError = validateFieldValue('userName', name);
+  if (nameError) errors.userName = nameError;
+
+  const emailError = validateFieldValue('userEmail', email);
+  if (emailError) errors.userEmail = emailError;
+
+  const messageError = validateFieldValue('userMessage', message);
+  if (messageError) errors.userMessage = messageError;
+
+  return {
+    valid: Object.keys(errors).length === 0,
+    errors,
+  };
+}
+
+function validateField(fieldId: string, value: string): string | undefined {
+  return validateFieldValue(fieldId, value);
 }
 
 function displayError(fieldId: string, message: string): void {
@@ -134,7 +135,22 @@ export function initFeedbackForm(): void {
 
     // Form is valid - submit data
     console.log('Form submitted:', Object.fromEntries(formData));
-    form.reset();
+
+    // Show success notification
+    const notification = form.closest('.feedback')?.querySelector('.feedback__notification--success') as HTMLElement;
+    if (notification) {
+      notification.style.display = 'block';
+      form.style.display = 'none';
+
+      // Hide notification and show form after 3 seconds
+      setTimeout(() => {
+        notification.style.display = 'none';
+        form.style.display = 'block';
+        form.reset();
+      }, 5000);
+    } else {
+      form.reset();
+    }
   });
 }
 
@@ -142,6 +158,9 @@ export function FeedbackForm(): string {
   return `
     <section class="feedback">
       <h3 class="feedback__title">Get in Touch</h3>
+      <div class="feedback__notification feedback__notification--success" style="display: none;">
+        Thank you! Your message has been sent successfully.
+      </div>
       <form action="" class="feedback__form">
         ${FormField({ id: 'userName', label: 'Name', type: 'text', placeholder: 'Name', required: true })}
         ${FormField({ id: 'userEmail', label: 'Email', type: 'email', placeholder: 'Email', required: true })}

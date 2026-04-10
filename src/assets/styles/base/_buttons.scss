@@ -45,4 +45,10 @@
     color: rgb(var(--clr-black));
     background-color: rgb(var(--clr-white));
     cursor: pointer;
+    transition: border-color 0.3s, color 0.3s;
+
+    &:hover {
+        border-color: rgb(var(--clr-gray-300));
+        color: rgb(var(--clr-brand-600));
+    }
 }

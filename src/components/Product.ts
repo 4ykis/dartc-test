@@ -1,12 +1,13 @@
 import '../assets/styles/components/_main-product.scss';
 import { FavoriteButton } from './FavoriteButton';
+import product1 from '../assets/images/products/product_1.jpg';
 
 export function MainProduct(): string {
   return `
     <section class="main-product-wrapper">
       <div class="main-product">
         <div class="main-product__image-wrapper">
-          <img class="main-product__image" width="326" height="326" src="/assets/images/products/product_1.jpg" alt="Samsung Galaxy S24 Ultra">
+          <img class="main-product__image" width="326" height="326" src="${product1}" alt="Samsung Galaxy S24 Ultra">
           ${FavoriteButton({ className: 'product__favorite' })}
         </div>
         <div class="main-product__content">

@@ -1,5 +1,3 @@
-import '../assets/styles/components/_favorite-button.scss';
-
 export type FavoriteButtonProps = {
   isFavorited?: boolean;
   className?: string;
@@ -8,14 +6,12 @@ export type FavoriteButtonProps = {
 export function FavoriteButton({ isFavorited = false, className = '' }: FavoriteButtonProps = {}): string {
   const baseClass = 'favorite-button';
   const classes = [baseClass, className, isFavorited ? 'favorite-button--favorited' : ''].filter(Boolean).join(' ');
+  const iconHref = isFavorited ? './icons.svg#favorite-check' : './icons.svg#favorite';
 
   return `
     <button class="icon-button ${classes}" aria-label="${isFavorited ? 'Remove from favorites' : 'Add to favorites'}" data-favorited="${isFavorited}">
       <svg width="24" height="24">
-        <use class="favorite-button__icon favorite-button__icon--default" href="/icons.svg#favorite"></use>
-        <use class="favorite-button__icon favorite-button__icon--add" href="/icons.svg#favorite-add"></use>
-        <use class="favorite-button__icon favorite-button__icon--check" href="/icons.svg#favorite-check"></use>
-        <use class="favorite-button__icon favorite-button__icon--remove" href="/icons.svg#favorite-remove"></use>
+        <use class="favorite-button__icon" href="${iconHref}"></use>
       </svg>
     </button>
   `;
@@ -28,12 +24,18 @@ export function initFavoriteButtons(): void {
 
     const isFavorited = button.dataset.favorited === 'true';
     const newFavorited = !isFavorited;
+    const useElement = button.querySelector('use');
 
     // Update data attribute
     button.dataset.favorited = newFavorited.toString();
 
     // Update aria-label
     button.setAttribute('aria-label', newFavorited ? 'Remove from favorites' : 'Add to favorites');
+
+    // Update icon href
+    if (useElement) {
+      useElement.href.baseVal = newFavorited ? './icons.svg#favorite-check' : './icons.svg#favorite';
+    }
 
     // Toggle favorited class
     button.classList.toggle('favorite-button--favorited', newFavorited);
