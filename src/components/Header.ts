@@ -1,4 +1,5 @@
 import '../assets/styles/components/_header.scss';
+import logo from '../assets/images/logo.svg';
 
 type NavSubItem = {
   label: string;
@@ -91,7 +92,7 @@ function NavItem(item: NavItemProps): string {
     <li class="nav-list__item">
       <span class="nav-list__link nav-list__link--toggle" role="button" aria-expanded="false" tabindex="0">
         ${item.label}
-        <svg class="nav-list__icon" width="24" height="24"><use href="/icons.svg#arrow-down"></use></svg>
+        <svg class="nav-list__icon" width="24" height="24"><use href="./icons.svg#arrow-down"></use></svg>
       </span>
       ${NavSublist(item.subItems!)}
     </li>
@@ -160,13 +161,13 @@ export function Header(): string {
     <header class="header container">
       <div class="header__wrapper">
         <a href="#" class="logo">
-          <img src="/assets/images/logo.svg" alt="TechStore">
+          <img src="${logo}" alt="TechStore">
         </a>
 
         <div class="nav">
           <div class="nav__button icon-button">
-            <svg class="nav__icon-menu" width="24" height="24"><use href="/icons.svg#menu"></use></svg>
-            <svg class="nav__icon-close" width="24" height="24"><use href="/icons.svg#close"></use></svg>
+            <svg class="nav__icon-menu" width="24" height="24"><use href="./icons.svg#menu"></use></svg>
+            <svg class="nav__icon-close" width="24" height="24"><use href="./icons.svg#close"></use></svg>
           </div>
           <div class="nav__content">
             <ul class="nav-list">
